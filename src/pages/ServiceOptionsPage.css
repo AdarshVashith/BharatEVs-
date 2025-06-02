@@ -1,0 +1,248 @@
+.service-options-page {
+  min-height: 100vh;
+}
+
+.page-header {
+  background: linear-gradient(to right, var(--primary-dark), var(--primary-color));
+  color: var(--text-light);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.page-header p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+}
+
+/* Service Categories Section */
+.service-categories-section {
+  padding: 5rem 0;
+  background-color: var(--secondary-color);
+}
+
+.service-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.category-column {
+  flex: 1 1 450px;
+  background-color: var(--text-light);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.category-column:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.category-icon {
+  color: var(--primary-color);
+  margin-right: 1rem;
+}
+
+.category-column h3 {
+  margin-bottom: 0;
+  font-size: 1.75rem;
+}
+
+.category-column > p {
+  color: var(--gray-600);
+  margin-bottom: 2rem;
+}
+
+.service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.service-option {
+  display: flex;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background-color: var(--gray-100);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.service-option:hover {
+  background-color: var(--primary-lighter);
+  transform: translateX(5px);
+}
+
+.service-option svg {
+  color: var(--primary-color);
+  margin-right: 1rem;
+  min-width: 24px;
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-content h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.option-content p {
+  color: var(--gray-600);
+  margin-bottom: 0.75rem;
+}
+
+.option-link {
+  display: inline-block;
+  color: var(--primary-color);
+  font-weight: 500;
+  position: relative;
+}
+
+.option-link::after {
+  content: '→';
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.service-option:hover .option-link::after {
+  transform: translateX(5px);
+}
+
+/* Service Process Section */
+.service-process-section {
+  padding: 5rem 0;
+  background-color: var(--text-light);
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.process-step {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: var(--gray-100);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  background-color: var(--primary-lighter);
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 auto 1.5rem;
+}
+
+.process-step h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.process-step p {
+  color: var(--gray-600);
+}
+
+/* Service CTA Section */
+.service-cta-section {
+  padding: 5rem 0;
+  background-color: var(--primary-lighter);
+}
+
+.service-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.service-cta-content h2 {
+  color: var(--primary-darker);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--gray-700);
+}
+
+@media (max-width: 992px) {
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 3rem 0;
+  }
+  
+  .page-header h1 {
+    font-size: 2.25rem;
+  }
+  
+  .service-categories {
+    flex-direction: column;
+  }
+  
+  .process-steps {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .page-header p {
+    font-size: 1.1rem;
+  }
+  
+  .category-column {
+    padding: 1.5rem;
+  }
+}
