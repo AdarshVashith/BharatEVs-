@@ -103,9 +103,54 @@ const VehicleServicePage = () => {
     e.preventDefault();
     
     if (validateForm()) {
-      console.log('Form submitted:', formData);
-      setFormSubmitted(true);
-      // Here you would typically send the data to your server
+      // Razorpay payment integration
+      const options = {
+        key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your Razorpay Key ID
+        amount: 49900, // Amount in paise (₹499 = 49900 paise)
+        currency: 'INR',
+        name: 'Bharat EVs',
+        description: 'Vehicle Service Inspection Fee',
+        image: 'https://your-logo-url.com/logo.png', // Optional: Replace with your logo URL
+        handler: function (response) {
+          // Handle successful payment
+          console.log('Payment successful:', response);
+          setFormSubmitted(true);
+          // Optionally, send formData and payment details to your server
+          console.log('Form data:', formData);
+          console.log('Payment ID:', response.razorpay_payment_id);
+        },
+        prefill: {
+          name: formData.customerName,
+          email: formData.emailAddress,
+          contact: formData.phoneNumber
+        },
+        notes: {
+          address: formData.address,
+          vehicleType: formData.vehicleType,
+          makeModel: formData.makeModel,
+          regNumber: formData.regNumber,
+          vinNumber: formData.vinNumber,
+          batteryType: formData.batteryType,
+          batterySerialNumber: formData.batterySerialNumber,
+          vehicleIssues: formData.vehicleIssues.join(', '),
+          batteryIssues: formData.batteryIssues.join(', ')
+        },
+        theme: {
+          color: '#28a745'
+        },
+        modal: {
+          ondismiss: function () {
+            console.log('Payment modal closed');
+          }
+        }
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.on('payment.failed', function (response) {
+        console.log('Payment failed:', response.error);
+        alert('Payment failed. Please try again.');
+      });
+      rzp.open();
     } else {
       console.log('Form has errors');
     }
@@ -124,7 +169,7 @@ const VehicleServicePage = () => {
             <h2>Vehicle Service Request Submitted</h2>
             <p>Thank you for choosing BHARAT EVs for your electric vehicle service needs. Our team will review your request and contact you shortly.</p>
             <p className="reference-number">Reference Number: VS-{Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</p>
-            <p>An inspection fee of ₹499 will be applicable for the initial diagnosis.</p>
+            <p>An inspection fee of ₹499 has been paid successfully.</p>
             <button onClick={() => window.location.href = '/'} className="btn">Return to Home</button>
           </div>
         </div>
@@ -669,12 +714,13 @@ const VehicleServicePage = () => {
             </div>
             
             <div className="form-actions">
-              <button type="submit" className="btn btn-lg">Submit Request</button>
+              <button type="submit" className="btn btn-lg">Pay ₹499</button>
               <button type="button" className="btn btn-secondary btn-lg" onClick={() => window.history.back()}>Go Back</button>
             </div>
           </form>
         </div>
       </div>
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     </div>
   );
 };

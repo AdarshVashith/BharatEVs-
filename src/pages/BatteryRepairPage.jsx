@@ -94,9 +94,50 @@ const BatteryRepairPage = () => {
     e.preventDefault();
     
     if (validateForm()) {
-      console.log('Form submitted:', formData);
-      setFormSubmitted(true);
-      // Here you would typically send the data to your server
+      // Razorpay payment integration
+      const options = {
+        key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your Razorpay Key ID
+        amount: 49900, // Amount in paise (₹499 = 49900 paise)
+        currency: 'INR',
+        name: 'Bharat EVs',
+        description: 'Battery Repair Inspection Fee',
+        image: 'https://your-logo-url.com/logo.png', // Optional: Replace with your logo URL
+        handler: function (response) {
+          // Handle successful payment
+          console.log('Payment successful:', response);
+          setFormSubmitted(true);
+          // Optionally, send formData and payment details to your server
+          console.log('Form data:', formData);
+          console.log('Payment ID:', response.razorpay_payment_id);
+        },
+        prefill: {
+          name: formData.name,
+          email: formData.email,
+          contact: formData.contactNumber
+        },
+        notes: {
+          address: formData.address,
+          batteryType: formData.batteryType,
+          brand: formData.brand,
+          modelNumber: formData.modelNumber,
+          serialNumber: formData.serialNumber
+        },
+        theme: {
+          color: '#28a745'
+        },
+        modal: {
+          ondismiss: function () {
+            console.log('Payment modal closed');
+          }
+        }
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.on('payment.failed', function (response) {
+        console.log('Payment failed:', response.error);
+        alert('Payment failed. Please try again.');
+      });
+      rzp.open();
     } else {
       console.log('Form has errors');
     }
@@ -115,7 +156,7 @@ const BatteryRepairPage = () => {
             <h2>Battery Repair Request Submitted</h2>
             <p>Thank you for choosing BHARAT EVs for your battery repair needs. Our team will review your request and contact you shortly.</p>
             <p className="reference-number">Reference Number: BR-{Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</p>
-            <p>An inspection fee of ₹499 will be applicable for the initial diagnosis.</p>
+            <p>An inspection fee of ₹499 has been paid successfully.</p>
             <button onClick={() => window.location.href = '/'} className="btn">Return to Home</button>
           </div>
         </div>
@@ -626,12 +667,13 @@ const BatteryRepairPage = () => {
             </div>
             
             <div className="form-actions">
-              <button type="submit" className="btn btn-lg">Submit Request</button>
+              <button type="submit" className="btn btn-lg">Pay ₹499</button>
               <button type="button" className="btn btn-secondary btn-lg" onClick={() => window.history.back()}>Go Back</button>
             </div>
           </form>
         </div>
       </div>
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     </div>
   );
 };
