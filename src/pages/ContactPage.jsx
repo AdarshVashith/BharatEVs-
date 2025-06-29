@@ -82,8 +82,7 @@ const ContactPage = () => {
                     </div>
                     <div className="contact-text">
                       <h3>Phone</h3>
-                      <p>+91 123 456 7890</p>
-                      <p>+91 987 654 3210</p>
+                      <p>+91 8607444176</p>
                     </div>
                   </div>
                   
@@ -94,7 +93,6 @@ const ContactPage = () => {
                     <div className="contact-text">
                       <h3>Email</h3>
                       <p>info@bharatevs.com</p>
-                      <p>service@bharatevs.com</p>
                     </div>
                   </div>
                   
@@ -104,8 +102,8 @@ const ContactPage = () => {
                     </div>
                     <div className="contact-text">
                       <h3>Address</h3>
-                      <p>123 EV Street, Green Park</p>
-                      <p>New Delhi, 110016, India</p>
+                      <p>42, sec-25 </p>
+                      <p>sonipat haryana-131001</p>
                     </div>
                   </div>
                   
@@ -123,7 +121,6 @@ const ContactPage = () => {
                 
                 <div className="contact-map">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.2536685325567!2d77.20659841508096!3d28.56035198244263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce26e895d4e0d%3A0x3fe9d07bbb2d9f3c!2sGreen%20Park%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1633690297859!5m2!1sen!2sin"
                     width="100%"
                     height="300"
                     style={{ border: 0 }}
@@ -223,32 +220,13 @@ const ContactPage = () => {
           
           <div className="branches-grid">
             <div className="branch-card">
-              <h3>Delhi (Head Office)</h3>
-              <p>123 EV Street, Green Park</p>
-              <p>New Delhi, 110016</p>
-              <p>Phone: +91 123 456 7890</p>
+              <h3>Haryana (Head Office)</h3>
+              <p>42, sec-25 </p>
+              <p>sonipat haryana-131001</p>
+              <p>Phone: +91 8607444176</p>
             </div>
             
-            <div className="branch-card">
-              <h3>Mumbai</h3>
-              <p>456 Battery Road, Andheri East</p>
-              <p>Mumbai, 400069</p>
-              <p>Phone: +91 234 567 8901</p>
-            </div>
-            
-            <div className="branch-card">
-              <h3>Bengaluru</h3>
-              <p>789 Electric Avenue, Koramangala</p>
-              <p>Bengaluru, 560034</p>
-              <p>Phone: +91 345 678 9012</p>
-            </div>
-            
-            <div className="branch-card">
-              <h3>Hyderabad</h3>
-              <p>321 EV Tower, Hitech City</p>
-              <p>Hyderabad, 500081</p>
-              <p>Phone: +91 456 789 0123</p>
-            </div>
+         
           </div>
         </div>
       </div>

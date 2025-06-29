@@ -68,7 +68,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <MapPin size={16} />
-                  <span>123 EV Street, Green Park, New Delhi, India</span>
+                  <span>42, sec-25 sonipat haryana-131001</span>
                 </li>
               </ul>
             </div>
