@@ -201,8 +201,8 @@ const BatteryServicePage = () => {
             </div>
             <div className="contact-sidebar">
               <h4>Need Help?</h4>
-              <p>Call us at: <strong>+91 123 456 7890</strong></p>
-              <p>Email: <strong>service@bharatevs.com</strong></p>
+              <p>Call us at: <strong>+91 8607444176</strong></p>
+              <p>Email: <strong>info@bharatevs.com</strong></p>
             </div>
           </div>
 
