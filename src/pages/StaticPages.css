@@ -1,0 +1,107 @@
+/* Green brand theme for static pages (Privacy Policy, Terms) */
+
+:root {
+  --brand-green: #16a34a; /* emerald-600 */
+  --brand-green-dark: #15803d; /* emerald-700 */
+  --brand-green-light: #34d399; /* emerald-400 */
+  --ink: #0f172a; /* slate-900 */
+  --muted: #475569; /* slate-600 */
+  --border: #e2e8f0; /* slate-200 */
+  --bg: #f8fafc; /* slate-50 */
+  --card: #ffffff;
+}
+
+.static-page {
+  background: var(--bg);
+}
+
+.static-page .page-header {
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+  padding: 56px 0;
+}
+
+.static-page .page-header h1 {
+  margin: 0 0 8px;
+  font-size: 36px;
+  line-height: 1.15;
+}
+
+.static-page .page-header p {
+  margin: 0;
+  color: #ffffff;
+  opacity: 1;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.static-page .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 28px 20px;
+}
+
+/* Section card styling */
+.static-page .section {
+  margin: 20px 0;
+  padding: 20px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand-green);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
+}
+
+.static-page h2 {
+  font-size: 22px;
+  margin: 0 0 10px;
+  color: var(--ink);
+  position: relative;
+}
+
+.static-page h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--brand-green);
+  border-radius: 999px;
+  margin-top: 8px;
+}
+
+.static-page p {
+  margin: 0 0 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.static-page ul {
+  margin: 0 0 12px 18px;
+  color: var(--muted);
+}
+
+.static-page ul li {
+  margin: 6px 0;
+}
+
+.static-page a {
+  color: var(--brand-green);
+  text-decoration: none;
+}
+
+.static-page a:hover {
+  color: var(--brand-green-dark);
+  text-decoration: underline;
+}
+
+.static-page .small-text {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .static-page .page-header { padding: 40px 0; }
+  .static-page .page-header h1 { font-size: 28px; }
+  .static-page .section { padding: 16px 16px; }
+}
